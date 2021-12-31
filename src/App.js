@@ -110,9 +110,9 @@ function App() {
               <img src={minus} alt="minus" /> 0
               <img src={plus} alt="plus" />
             </div>
-            <button className="main__addToCart">
+            <button className="main__cartButton">
               <img src={cart} alt="cart" />
-              <span>Add To Cart</span>
+              Add To Cart
             </button>
           </div>
         </div>
