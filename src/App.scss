@@ -1,0 +1,61 @@
+@import "./colors.scss";
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  width: 75%;
+  margin: auto;
+}
+
+.nav {
+  @include flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid $Light-grayish-blue;
+
+  img {
+    cursor: pointer;
+  }
+
+  &__left,
+  &__right {
+    @include flex;
+    gap: 5rem;
+  }
+
+  &__right {
+    gap: 2rem;
+  }
+
+  &__links {
+    @include flex;
+    gap: 2rem;
+
+    a {
+      text-decoration: none;
+      color: $Dark-grayish-blue;
+      padding: 2rem 0;
+      border-bottom: 5px solid transparent;
+
+      &:hover {
+        color: $Very-vark-blue;
+        border-bottom: 5px solid $Orange;
+      }
+    }
+  }
+
+  &__avatar {
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 3px solid transparent;
+    border-radius: 50%;
+
+    &:hover {
+      border: 3px solid $Orange;
+    }
+  }
+}
