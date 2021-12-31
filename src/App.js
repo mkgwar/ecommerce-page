@@ -21,6 +21,7 @@ const images = { img1: "active", img2: "", img3: "", img4: "" };
 function App() {
   const [imageSRC, setimageSRC] = useState(img1);
   const [activeImage, setactiveImage] = useState(images);
+  const [counter, setcounter] = useState(0);
 
   const setImage = (imageURL, image) => {
     setimageSRC(imageURL);
@@ -33,6 +34,13 @@ function App() {
     }
 
     setactiveImage(temp);
+  };
+
+  const minusCount = () => {
+    setcounter(counter <= 0 ? 0 : counter - 1);
+  };
+  const plusCount = () => {
+    setcounter(counter + 1);
   };
 
   return (
@@ -107,8 +115,9 @@ function App() {
           <p className="main__originalPrice">$250.00</p>
           <div className="main__addToCart">
             <div className="main__plusMinus">
-              <img src={minus} alt="minus" /> 0
-              <img src={plus} alt="plus" />
+              <img src={minus} alt="minus" onClick={minusCount} />{" "}
+              <div className="main__counter">{counter}</div>
+              <img src={plus} alt="plus" onClick={plusCount} />
             </div>
             <button className="main__cartButton">
               <img src={cart} alt="cart" />

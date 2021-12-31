@@ -83,6 +83,10 @@
       position: relative;
       opacity: 0.5;
 
+      &:hover {
+        opacity: 1;
+      }
+
       &.active {
         border: 5px solid $Orange;
         opacity: 1;
@@ -175,6 +179,10 @@
     }
   }
 
+  &__counter {
+    width: 1rem;
+  }
+
   &__cartButton {
     padding: 1rem;
     width: 100%;
@@ -186,6 +194,10 @@
     gap: 0.5rem;
     color: #fff;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
 
     img {
       filter: brightness(10);
