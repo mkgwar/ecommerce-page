@@ -16,8 +16,24 @@ import {
 } from "./ImageData";
 import { useState } from "react";
 
+const images = { img1: "active", img2: "", img3: "", img4: "" };
+
 function App() {
   const [imageSRC, setimageSRC] = useState(img1);
+  const [activeImage, setactiveImage] = useState(images);
+
+  const setImage = (imageURL, image) => {
+    setimageSRC(imageURL);
+    const temp = {};
+
+    for (let key in images) {
+      if (key === image) {
+        temp[key] = "active";
+      } else temp[key] = "";
+    }
+
+    setactiveImage(temp);
+  };
 
   return (
     <div className="app">
@@ -40,27 +56,38 @@ function App() {
 
       <main className="main">
         <div className="main__slider">
-          <img src={imageSRC} alt="slider" className="main__sliderMainiImage" />
+          <div className="main__imageContainer">
+            <img
+              src={imageSRC}
+              alt="slider"
+              className="main__sliderMainiImage"
+            />
+          </div>
+
           <div className="main__sliderFlex">
             <img
               src={img1Thumb}
               alt="slider"
-              onClick={() => setimageSRC(img1)}
+              onClick={() => setImage(img1, "img1")}
+              className={activeImage.img1}
             />
             <img
               src={img2Thumb}
               alt="slider"
-              onClick={() => setimageSRC(img2)}
+              onClick={() => setImage(img2, "img2")}
+              className={activeImage.img2}
             />
             <img
               src={img3Thumb}
               alt="slider"
-              onClick={() => setimageSRC(img3)}
+              onClick={() => setImage(img3, "img3")}
+              className={activeImage.img3}
             />
             <img
               src={img4Thumb}
               alt="slider"
-              onClick={() => setimageSRC(img4)}
+              onClick={() => setImage(img4, "img4")}
+              className={activeImage.img4}
             />
           </div>
         </div>

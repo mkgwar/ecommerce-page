@@ -59,3 +59,50 @@
     }
   }
 }
+
+.main {
+  @include flex;
+
+  &__slider {
+    flex-basis: 50%;
+    padding: 4rem;
+  }
+
+  &__sliderFlex {
+    width: 100%;
+    @include flex;
+    margin-top: 1rem;
+    gap: 1rem;
+
+    img {
+      width: 100%;
+      border-radius: 1rem;
+      cursor: pointer;
+      border: 5px solid transparent;
+      position: relative;
+      opacity: 0.5;
+
+      &.active {
+        border: 5px solid $Orange;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__imageContainer {
+    width: 100%;
+    aspect-ratio: 1/1;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  &__text-content {
+    flex-basis: 50%;
+    padding: 4rem;
+  }
+}
