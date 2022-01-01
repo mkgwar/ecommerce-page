@@ -25,7 +25,7 @@ function App() {
   const [counter, setcounter] = useState(1);
   const [isCartActive, setisCartActive] = useState(false);
   const [displayProduct, setdisplayProduct] = useState(false);
-  const [currentCounter, setcurrentCounter] = useState(counter);
+  const [currentCounter, setcurrentCounter] = useState(0);
 
   const setImage = (imageURL, image) => {
     setimageSRC(imageURL);
@@ -58,6 +58,7 @@ function App() {
 
   const RemoveFromCart = () => {
     setdisplayProduct(false);
+    setcurrentCounter(0);
   };
 
   return (
@@ -74,7 +75,13 @@ function App() {
           </div>
         </div>
         <div className="nav__right">
-          <img src={cart} alt="cart" onClick={activateCart} />
+          <div className="nav__cartContainer">
+            {currentCounter > 0 && (
+              <div className="nav__cartCounter">{currentCounter}</div>
+            )}
+            <img src={cart} alt="cart" onClick={activateCart} />
+          </div>
+
           <img src={avatar} alt="avatar" className="nav__avatar" />
           {isCartActive && displayProduct && (
             <div className="nav__cartDropDown">

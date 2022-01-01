@@ -25,6 +25,24 @@
     color: $Grayish-blue;
   }
 
+  &__cartContainer {
+    position: relative;
+  }
+
+  &__cartCounter {
+    @include flex;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 0.5rem;
+    background-color: $Orange;
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
   &__cartDropDown {
     position: absolute;
     top: 4rem;
