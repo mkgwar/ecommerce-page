@@ -155,21 +155,33 @@
     margin-top: 1rem;
     gap: 1rem;
 
-    img {
+    div {
       width: 100%;
-      border-radius: 1rem;
+      aspect-ratio: 1/1;
       cursor: pointer;
-      border: 5px solid transparent;
       position: relative;
-      opacity: 0.5;
-
-      &:hover {
-        opacity: 1;
-      }
+      border: 5px solid transparent;
+      border-radius: 10px;
 
       &.active {
         border: 5px solid $Orange;
-        opacity: 1;
+
+        img {
+          opacity: 0.5;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        object-fit: cover;
+
+        &:hover {
+          opacity: 0.5;
+        }
       }
     }
   }

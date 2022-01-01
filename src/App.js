@@ -122,30 +122,34 @@ function App() {
           </div>
 
           <div className="main__sliderFlex">
-            <img
-              src={img1Thumb}
-              alt="slider"
-              onClick={() => setImage(img1, "img1")}
-              className={activeImage.img1}
-            />
-            <img
-              src={img2Thumb}
-              alt="slider"
-              onClick={() => setImage(img2, "img2")}
-              className={activeImage.img2}
-            />
-            <img
-              src={img3Thumb}
-              alt="slider"
-              onClick={() => setImage(img3, "img3")}
-              className={activeImage.img3}
-            />
-            <img
-              src={img4Thumb}
-              alt="slider"
-              onClick={() => setImage(img4, "img4")}
-              className={activeImage.img4}
-            />
+            <div className={activeImage.img1}>
+              <img
+                src={img1Thumb}
+                alt="slider"
+                onClick={() => setImage(img1, "img1")}
+              />
+            </div>
+            <div className={activeImage.img2}>
+              <img
+                src={img2Thumb}
+                alt="slider"
+                onClick={() => setImage(img2, "img2")}
+              />
+            </div>
+            <div className={activeImage.img3}>
+              <img
+                src={img3Thumb}
+                alt="slider"
+                onClick={() => setImage(img3, "img3")}
+              />
+            </div>
+            <div className={activeImage.img4}>
+              <img
+                src={img4Thumb}
+                alt="slider"
+                onClick={() => setImage(img4, "img4")}
+              />
+            </div>
           </div>
         </div>
 
