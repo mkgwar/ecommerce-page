@@ -18,11 +18,18 @@
   border-bottom: 3px solid $Light-grayish-blue;
   position: relative;
 
+  &__nothing {
+    @include flex;
+    margin: 1.5rem;
+    height: 2.5rem;
+    color: $Grayish-blue;
+  }
+
   &__cartDropDown {
     position: absolute;
     top: 4rem;
     right: -4rem;
-    width: 25%;
+    width: 26%;
     background-color: #fff;
     z-index: 20;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);

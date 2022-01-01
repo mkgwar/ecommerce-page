@@ -22,7 +22,10 @@ const images = { img1: "active", img2: "", img3: "", img4: "" };
 function App() {
   const [imageSRC, setimageSRC] = useState(img1);
   const [activeImage, setactiveImage] = useState(images);
-  const [counter, setcounter] = useState(0);
+  const [counter, setcounter] = useState(1);
+  const [isCartActive, setisCartActive] = useState(false);
+  const [displayProduct, setdisplayProduct] = useState(false);
+  const [currentCounter, setcurrentCounter] = useState(counter);
 
   const setImage = (imageURL, image) => {
     setimageSRC(imageURL);
@@ -38,10 +41,23 @@ function App() {
   };
 
   const minusCount = () => {
-    setcounter(counter <= 0 ? 0 : counter - 1);
+    setcounter(counter <= 1 ? 1 : counter - 1);
   };
   const plusCount = () => {
     setcounter(counter + 1);
+  };
+
+  const activateCart = () => {
+    setisCartActive(!isCartActive);
+  };
+
+  const AddToCart = () => {
+    setcurrentCounter(counter);
+    setdisplayProduct(true);
+  };
+
+  const RemoveFromCart = () => {
+    setdisplayProduct(false);
   };
 
   return (
@@ -58,24 +74,33 @@ function App() {
           </div>
         </div>
         <div className="nav__right">
-          <img src={cart} alt="cart" />
+          <img src={cart} alt="cart" onClick={activateCart} />
           <img src={avatar} alt="avatar" className="nav__avatar" />
-          <div className="nav__cartDropDown">
-            <div className="nav__cartTitle">Cart</div>
-            <div className="nav__cartFlex">
-              <img src={img1Thumb} alt="product" className="nav__thumb" />
-              <div className="nav__cartDetail">
-                Fall Limited Edition Sneakers
-                <div>
-                  $125.00 x {counter} <b>${125 * counter}.00</b>
+          {isCartActive && displayProduct && (
+            <div className="nav__cartDropDown">
+              <div className="nav__cartTitle">Cart</div>
+              <div className="nav__cartFlex">
+                <img src={img1Thumb} alt="product" className="nav__thumb" />
+                <div className="nav__cartDetail">
+                  Fall Limited Edition Sneakers
+                  <div>
+                    $125.00 x {currentCounter} <b>${125 * currentCounter}.00</b>
+                  </div>
                 </div>
+                <img src={bin} alt="delete" onClick={RemoveFromCart} />
               </div>
-              <img src={bin} alt="delete" />
+              <div className="nav__buttonContainer">
+                <button className="nav__cartCheckout">Checkout</button>
+              </div>
             </div>
-            <div className="nav__buttonContainer">
-              <button className="nav__cartCheckout">Checkout</button>
+          )}
+
+          {isCartActive && !displayProduct && (
+            <div className="nav__cartDropDown">
+              <div className="nav__cartTitle">Cart</div>
+              <div className="nav__nothing">Cart is empty</div>
             </div>
-          </div>
+          )}
         </div>
       </nav>
 
@@ -136,7 +161,7 @@ function App() {
               <div className="main__counter">{counter}</div>
               <img src={plus} alt="plus" onClick={plusCount} />
             </div>
-            <button className="main__cartButton">
+            <button className="main__cartButton" onClick={AddToCart}>
               <img src={cart} alt="cart" />
               Add To Cart
             </button>
