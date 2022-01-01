@@ -11,6 +11,7 @@ import img4Thumb from "./images/image-product-4-thumbnail.jpg";
 import img4 from "./images/image-product-4.jpg";
 import minus from "./images/icon-minus.svg";
 import plus from "./images/icon-plus.svg";
+import bin from "./images/icon-delete.svg";
 
 export {
   logo,
@@ -26,4 +27,5 @@ export {
   img4,
   minus,
   plus,
+  bin,
 };

@@ -13,6 +13,7 @@ import {
   img4,
   minus,
   plus,
+  bin,
 } from "./ImageData";
 import { useState } from "react";
 
@@ -59,6 +60,22 @@ function App() {
         <div className="nav__right">
           <img src={cart} alt="cart" />
           <img src={avatar} alt="avatar" className="nav__avatar" />
+          <div className="nav__cartDropDown">
+            <div className="nav__cartTitle">Cart</div>
+            <div className="nav__cartFlex">
+              <img src={img1Thumb} alt="product" className="nav__thumb" />
+              <div className="nav__cartDetail">
+                Fall Limited Edition Sneakers
+                <div>
+                  $125.00 x {counter} <b>${125 * counter}.00</b>
+                </div>
+              </div>
+              <img src={bin} alt="delete" />
+            </div>
+            <div className="nav__buttonContainer">
+              <button className="nav__cartCheckout">Checkout</button>
+            </div>
+          </div>
         </div>
       </nav>
 
